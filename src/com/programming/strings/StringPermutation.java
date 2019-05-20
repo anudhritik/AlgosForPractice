@@ -20,6 +20,6 @@ public class StringPermutation {
 	}
 
 	public static void main(String[] args) {
-		PermFinder("ABCD");
+		PermFinder("ABC");
 	}
 }

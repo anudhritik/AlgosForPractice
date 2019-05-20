@@ -41,7 +41,7 @@ public class BalancedParanthesis {
 	}
 
 	public static void main(String[] args) {
-		String[] input = { "{[}", "[{}{}(([]))]", "" };
+		String[] input = { "{[}", "[{}{}(([]))]", "{(([])[])[]]}" };
 		for (String inputs : input) {
 			if (checkBalancedParanthesis(inputs)) {
 				System.out.println("Balanced");
