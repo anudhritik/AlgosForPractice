@@ -4,23 +4,23 @@ public class LLImpl {
 
 	Node head;
 
-	public void insert(int value) {
-		Node node = new Node();
-		node.data = value;
-		node.next = null;
+	public void insert(int data) {
+		Node newNode = new Node();
+		newNode.data = data;
+		newNode.next = null;
 
 		// If the list is empty, make the node as head
 		if (head == null) {
-			head = node;
+			head = newNode;
 			// If the list is not empty, traverse through the list
 			// and insert the node there.
 		} else {
-			Node temp = head;
-			while (temp.next != null) {
-				temp = temp.next;
+			Node lastNode = head;
+			while (lastNode.next != null) {
+				lastNode = lastNode.next;
 			}
 			// Insert the new node at the end.
-			temp.next = node;
+			lastNode.next = newNode;
 		}
 	}
 
@@ -30,6 +30,21 @@ public class LLImpl {
 		node.next = null;
 		node.next = head;
 		head = node;
+
+	}
+
+	public void insertAt(int index, int data) {
+		Node newNode = new Node();
+		newNode.data = data;
+		newNode.next = null;
+
+		Node currentNode = head;
+		for (int i = 0; i < index - 1; i++) {
+			currentNode = currentNode.next;
+		}
+
+		newNode.next = currentNode.next;
+		currentNode.next = newNode;
 
 	}
 
@@ -48,9 +63,11 @@ public class LLImpl {
 		LLImpl list = new LLImpl();
 		list.insert(1);
 		list.insert(2);
-		list.insert(3);
+		list.insert(4);
 
-		list.insertAtStart(10);
+		list.insertAtStart(0);
+
+		list.insertAt(3, 3);
 
 		list.print();
 
