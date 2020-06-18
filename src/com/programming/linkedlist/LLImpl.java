@@ -12,8 +12,8 @@ public class LLImpl {
 		// If the list is empty, make the node as head
 		if (head == null) {
 			head = node;
-			// If the list is not empty, traverse through the list 
-			//and insert the node there. 
+			// If the list is not empty, traverse through the list
+			// and insert the node there.
 		} else {
 			Node temp = head;
 			while (temp.next != null) {
@@ -22,6 +22,15 @@ public class LLImpl {
 			// Insert the new node at the end.
 			temp.next = node;
 		}
+	}
+
+	public void insertAtStart(int data) {
+		Node node = new Node();
+		node.data = data;
+		node.next = null;
+		node.next = head;
+		head = node;
+
 	}
 
 	public void print() {
@@ -40,6 +49,8 @@ public class LLImpl {
 		list.insert(1);
 		list.insert(2);
 		list.insert(3);
+
+		list.insertAtStart(10);
 
 		list.print();
 
