@@ -1,6 +1,10 @@
 package com.programming.linkedlist;
 
 public class LLImpl {
+	public class Node {
+		int data;
+		Node next;
+	}
 
 	Node head;
 

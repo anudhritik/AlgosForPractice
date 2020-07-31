@@ -31,8 +31,8 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		int arr[] = { 2, 6, 7, 8, 4, 9, 1, 3, 5 };
-		sort(arr, 0, arr.length - 1);
 		for (int i = 0; i < arr.length; i++) {
+			sort(arr, 0, arr.length - 1);
 			System.out.println(arr[i]);
 		}
 	}

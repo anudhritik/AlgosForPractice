@@ -1,8 +1,10 @@
 package com.programming.sorting;
 
-import com.programming.linkedlist.Node;
-
 public class MergeSortSL {
+	public class Node{
+		Node next;
+		int data;
+	}
 	Node head;
 
 	Node sortedMerge(Node a, Node b) {
