@@ -19,6 +19,8 @@ public class CheckAnagramHashMap {
 				char key = newS1.charAt(i);
 				if (map.containsKey(key)) {
 					map.put(key, map.get(key)+1);
+				} else {
+					map.put(key, 1);
 				}
 				
 			}
@@ -26,6 +28,8 @@ public class CheckAnagramHashMap {
 				char key = newS2.charAt(i);
 				if (map.containsKey(key)) {
 					map.put(key, map.get(key)-1);
+				} else {
+					map.put(key, 1);
 				}
 			}
 			for (int value : map.values()) {
@@ -43,6 +47,7 @@ public class CheckAnagramHashMap {
 	}
 
 	public static void main(String[] args) {
-		IsAnagram("nation", "noitan");
+		//IsAnagram("nation", "natina");
+		IsAnagram("a", "a");
 	}
 }
