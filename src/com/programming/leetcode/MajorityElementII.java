@@ -17,11 +17,11 @@ public class MajorityElementII {
 			}
 		}
 
-			for (Map.Entry<Integer, Integer> set : map.entrySet()) {
-				if (set.getValue() > nums.length / 3) {
-					resultList.add(set.getKey());
-				}
+		for (Map.Entry<Integer, Integer> set : map.entrySet()) {
+			if (set.getValue() > nums.length / 3) {
+				resultList.add(set.getKey());
 			}
+		}
 		return resultList;
 	}
 
