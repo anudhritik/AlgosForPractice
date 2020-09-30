@@ -10,8 +10,15 @@ public class WordBreak {
 
 		boolean[] dp = new boolean[s.length() + 1];
 		dp[0] = true;
+		int maxLength = 0;
+		for (String word : wordDict) {
+			maxLength = Math.max(maxLength, word.length());
+		}
 		for (int i = 0; i <= s.length(); i++) {
 			for (int j = 0; j < i; j++) {
+				if (i - j > maxLength) {
+					continue;
+				}
 				if (dp[j] && wordDict.contains(s.substring(j, i))) {
 					dp[i] = true;
 					break;
