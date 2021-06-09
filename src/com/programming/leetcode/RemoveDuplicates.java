@@ -3,19 +3,19 @@ package com.programming.leetcode;
 public class RemoveDuplicates {
 
 	public static int removeDuplicates(int[] nums) {
-		int count = 0;
+		int count = 1;
 
-		for (int num : nums) {
-			if (num > nums[count]) {
-				nums[++count] = num;
+		for(int i = 0; i<nums.length;i++){
+			if(nums[i] != nums[count-1]){
+				nums[count++] = nums[i];
 			}
 		}
-		return count + 1;
+		return count;
 
 	}
 
 	public static void main(String[] args) {
-		int[] nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+		int[] nums = { 0, 0, 1, 4 };
 		System.out.println(removeDuplicates(nums));
 	}
 }
