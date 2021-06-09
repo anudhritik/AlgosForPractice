@@ -20,14 +20,6 @@ public class TargetSum {
 	private static int countNumberOfSubsets(int[] nums, int target) {
 
 		int[][] dp = new int[nums.length + 1][target + 1];
-
-		/*for (int i = 0; i <= nums.length; i++) {
-			dp[i][0] = 1;
-		}
-
-		for (int j = 0; j <= target; j++) {
-			dp[0][j] = 1;
-		}*/
 		
 		dp[0][0] = 1;
 
