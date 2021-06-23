@@ -1,55 +1,57 @@
 package com.programming.dp;
 
-import java.util.Arrays;
-
 public class SuperEggDrop {
 
-	static int[][] dp = new int[101][10001];
+	static Integer dp[][] = new Integer[101][10001];
 
-	public static int superEggDrop(int k, int n) {
-		return solve(k, n);
+	public static int superEggDrop(int e, int f) {
+		return solve(e, f);
 	}
 
-	private static int solve(int k, int n) {
+	private static int solve(int e, int f) {
 
-		if (k == 1)
-			return n;
+		if (e == 1)
+			return f;
 
-		if (n == 0 || n == 1)
-			return n;
+		if (f == 0 || f == 1)
+			return f;
 
-		for (int row[] : dp)
-			Arrays.fill(row, -1);
-
-		if (dp[k][n] != -1)
-			return dp[k][n];
+		// If the value was already computed, no need to compute again.
+		if (dp[e][f] != null)
+			return dp[e][f];
 
 		int min = Integer.MAX_VALUE;
-		int low = 1, high = n;
 
+		int low = 1, high = f;
+
+		// Binary Search
 		while (low <= high) {
 			int mid = low + (high - low) / 2;
 
-			low = solve(k - 1, mid - 1);
-			high = solve(k, n - mid);
+			// If egg breaks, we explore bottom floors.
+			int goingDown = solve(e - 1, mid - 1);
 
-			int temp = 1 + Math.max(low, high);
+			// If egg doesn't break, we explore upper floors.
+			int goingUp = solve(e, f - mid);
 
-			if (low < high) {
+			// Taking max to get the worst attempts from going up and down.
+			int temp = 1 + Math.max(goingDown, goingUp);
+
+			if (goingDown < goingUp) {
 				low = mid + 1;
 			} else {
 				high = mid - 1;
 			}
-
+			// Finaly, we need the minimum of those worst attempts earlier.
 			min = Math.min(min, temp);
 		}
 
-		dp[k][n] = min;
+		dp[e][f] = min;
 		return min;
 	}
-	
+
 	public static void main(String[] args) {
-		superEggDrop(k, n);
+		System.out.println(superEggDrop(2, 6));
 	}
-	
+
 }
