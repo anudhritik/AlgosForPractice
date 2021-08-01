@@ -29,7 +29,7 @@ public class BackSpaceStringCompare {
 					return false;
 				else
 					i--;
-				j--;
+					j--;
 			} else {
 				if (i >= 0 || j >= 0)
 					return false;

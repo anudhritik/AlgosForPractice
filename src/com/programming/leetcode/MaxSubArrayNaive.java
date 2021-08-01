@@ -18,7 +18,7 @@ public class MaxSubArrayNaive {
 	}
 
 	public static void main(String[] args) {
-		int nums[] = { -1, -2 };
+		int nums[] = { 5, 4, -1, 7, 8 };
 		System.out.println(maxSubArray(nums));
 	}
 }
